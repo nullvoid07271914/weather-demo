@@ -18,3 +18,10 @@ http://localhost:8182/api/weather/by-location
 	"temperature": "278.52",
 	"dtimeInserted": "2020-12-05T10:01:09.152+00:00"
 }
+
+# guide
+![](images/request.PNG)
+
+![](images/response.PNG)
+
+![](images/result.PNG)
