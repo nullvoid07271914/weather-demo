@@ -21,11 +21,11 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.src.weather.WeatherServiceUtil;
 import com.src.weather.controllers.requestbody.WeatherLocation;
 import com.src.weather.models.Weather;
 import com.src.weather.models.WeatherUrl;
 import com.src.weather.services.WeatherService;
+import com.src.weather.utils.WeatherServiceUtil;
 
 @RestController
 @RequestMapping("/api")

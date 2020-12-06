@@ -1,4 +1,4 @@
-package com.src.weather;
+package com.src.weather.utils;
 
 import java.util.List;
 import java.util.Map;
