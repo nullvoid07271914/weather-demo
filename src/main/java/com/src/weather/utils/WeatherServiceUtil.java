@@ -21,8 +21,16 @@ public abstract class WeatherServiceUtil {
 		}
 
 		String location = (String) weatherRawData.get("name");
-		double tempRaw = (double) mainMap.get("temp");
-		String temperature = Double.toString(tempRaw);
+		Object object = mainMap.get("temp");
+
+		/* fixed bug: carefully handle temperature from api reponse */
+		String temperature = StringUtils.EMPTY;
+		if (object instanceof String)
+			temperature = (String) object;
+		else if (object instanceof Double)
+			temperature = Double.toString((Double) object);
+		else if (object instanceof Integer)
+			temperature = Integer.toString((Integer) object);
 
 		Weather weather = new Weather();
 		weather.setLocation(location);
