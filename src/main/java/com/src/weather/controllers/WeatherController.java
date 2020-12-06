@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
@@ -47,7 +49,7 @@ public class WeatherController {
 	@PostMapping(path = "/weather/by-location",
 		consumes = { MediaType.APPLICATION_JSON_VALUE },
 		produces = { MediaType.APPLICATION_JSON_VALUE })
-	public ResponseEntity<?> getWeatherByLocation(@RequestBody WeatherLocation requestBody)
+	public ResponseEntity<?> getWeatherByLocation(@Valid @RequestBody WeatherLocation requestBody)
 			throws JsonMappingException, JsonProcessingException {
 		String location = requestBody.getLocation();
 
