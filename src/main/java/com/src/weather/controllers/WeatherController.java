@@ -21,6 +21,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.src.weather.WeatherServiceUtil;
 import com.src.weather.controllers.requestbody.WeatherLocation;
 import com.src.weather.models.Weather;
 import com.src.weather.models.WeatherUrl;
@@ -29,11 +30,11 @@ import com.src.weather.services.WeatherService;
 @RestController
 @RequestMapping("/api")
 public class WeatherController {
-	
+
 	private static final String HOST = "api.openweathermap.org";
-	
+
 	private static final String PATH = "/data/2.5/weather";
-	
+
 	private static final String QUERY = "q={keyword}&appid={appid}";
 
 	@Autowired
@@ -70,7 +71,7 @@ public class WeatherController {
 		ObjectMapper mapper = new ObjectMapper();
 		Map<String, Object> weatherRawData = mapper.readValue(res.getBody(), Map.class);
 
-		Weather weatherPersist = service.createWeatherObject(weatherRawData);
+		Weather weatherPersist = WeatherServiceUtil.createWeatherObject(weatherRawData);
 		Optional<Weather> weather = service.save(weatherPersist);
 		return ResponseEntity.ok(weather.get());
 	}
