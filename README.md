@@ -25,7 +25,7 @@ http://localhost:8182/api/weather/by-location
 ![](images/415-response.PNG)
 
 # HTTP 405
-![](images/405-request.PNG)
+![](images/405.PNG)
 
 # ORACLE DB
 
